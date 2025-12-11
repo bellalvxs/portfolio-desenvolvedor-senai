@@ -1,71 +1,156 @@
-/*Menu de Navegação*/
-        nav{
-            background-color:rgb(241, 164, 219);
-        }
-        nav ul{
-            list-style: none; /*Remove os marcadoresda lista*/
-            margin: 0;/*Remove margens padrões*/
-            padding: 0; /*Remove espaçamento interno padrão*/
-            display: flex; /*Coloca os itens da lista em linha horizontal*/
-            justify-content: center; /*Centraliza o menu*/
-        }
-        nav ul li{
-            margin: 0 15px; /*Espaço Horizontal entre os itens*/
-        }
-        nav ul li a{
-            color:aliceblue;
-            text-decoration: none;
-            font-weight: bold;/*Deixa o texto em negrito*/
-            padding: 10px;
-            display: block; /*Faz o link ocupar a area de click inteiro*/
-        }
-        nav ul li a:hover{
-            background-color: rgb(235, 101, 173);
-            border-radius: 5px; /*Arrendonda os cantos do fundo*/
-        }
-        /*Container principal*/
-        .container{
-            max-width: 100%; /*Define a largura máxima do conteúdo*/
-            margin: auto; /*Centraliza o conteúdo na tela*/
-            padding:20px; /*Espaço interno*/
-        }
-        .conteudo{
-            margin-bottom: 40px; /*Espaço inferior entre seções*/
-        }
-        h2{
-            color:rgb(188, 2, 126)
-        }
-          p{
-            font-size: 1.1em; /*Fonte um pouco maior que o padrão*/
-            line-height: 1.5; /*Espaçamento entre linhas para facilitar leitura*/
-        }
-        .estilo img{
-            max-width: 700px;
-            display:block;
-            margin:20px auto;
-        }
-        a{
-            color:rgb(164, 11, 123); /*Cor rosa*/
-            text-decoration: none; /*Remove sublinhado padrão*/
-        }
-        a:hover{
-            text-decoration: underline; /*Sublinhado aparece*/
-        }
-        footer{
-            background-color:rgb(235, 101, 173);
-            color:aliceblue;
-            padding: 15px;
-            text-align:center;
-        }
-        header{
-    display: flex;
-    align-items: center; /* centraliza verticalmente */
-    padding: 10px 40px;
-    background-color: rgb(241, 164, 219); /* mesma cor do nav */
-    }
+/* ======== GERAL ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 
-        header img{
-            width: 100 px;/*Largura do logo*/
-            height: 100px;/*Altura do logo*/
-        }
-   
+body {
+    background: linear-gradient(135deg, #6a006b, #a000c8, #ff2cb3);
+    background-size: 200% 200%;
+    animation: grad 10s ease infinite;
+    color: #fff;
+}
+
+/* animação do fundo */
+@keyframes grad {
+    0%   { background-position: 0% 0%; }
+    50%  { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* ======== HEADER ======== */
+header {
+    width: 100%;
+    padding: 30px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff4fcf;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    opacity: 0.8;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+nav a:nth-child(1)::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ff4fcf;
+    border-radius: 4px;
+}
+
+/* botão de contato do header */
+.contato-btn {
+    background: #ff4fcf;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contato-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ======== HERO ======== */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px;
+}
+
+.texto {
+    max-width: 520px;
+}
+
+.ola {
+    font-size: 22px;
+    opacity: 0.8;
+}
+
+h1 {
+    font-size: 60px;
+    margin: 10px 0 20px;
+    line-height: 1.1;
+}
+
+.descricao {
+    font-size: 17px;
+    opacity: 0.9;
+    margin-bottom: 35px;
+}
+
+/* botões */
+.botoes {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.rosa {
+    background: #ff4fcf;
+    color: #fff;
+}
+
+.rosa:hover {
+    transform: scale(1.07);
+}
+
+/* ======== FOTO ======== */
+.imagem img {
+    width: 330px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.3);
+    box-shadow: 0 0 40px rgba(255, 0, 120, 0.4);
+}
+.logo img {
+    height: 70px;              /* tamanho perfeito no estilo da sua logo */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 180, 0.35));
+    transition: 0.3s;
+}
+
+/* efeito hover (fica chique e moderno) */
+.logo img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(255, 0, 200, 0.6));
+}
